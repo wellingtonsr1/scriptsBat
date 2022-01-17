@@ -1,0 +1,13 @@
+firefoxesr
+googlechrome
+7zip
+adobereader
+jre8
+libreoffice-still
+pdfcreator
+steam-client
+vscode
+notepadplusplus.install
+python
+virtualbox
+rufus
