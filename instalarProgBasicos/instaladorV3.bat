@@ -70,6 +70,7 @@ if not exist "C:\ProgramData\chocolatey" (
 	rem Atualiza o chocolatey
 	choco upgrade chocolatey
 
+	rem Atualiza os pacotes
 	for /F "delims=*" %%i IN ('choco outdated') DO set text=%%i
 	set TEXT="%text%"
 	set number="%TEXT:~27,2%"
