@@ -1,4 +1,4 @@
-@ SCRIPT PARA ELIMINAÇÃO DE ARQUIVOS TEMPORÁRIOS
+@ SCRIPT PARA ELIMINAï¿½ï¿½O DE ARQUIVOS TEMPORï¿½RIOS
 @ BABOO 2020
 
 taskkill /F /IM "ccleaner64.exe"
@@ -6,7 +6,7 @@ taskkill /F /IM "ccleaner.exe"
 
 REM ******************** WINDOWS ********************
 
-REM Apaga todas as pastas temporárias e arquivos temporários do usuário
+REM Apaga todas as pastas temporï¿½rias e arquivos temporï¿½rios do usuï¿½rio
 takeown /A /R /D Y /F C:\Users\%USERNAME%\AppData\Local\Temp\
 icacls C:\Users\%USERNAME%\AppData\Local\Temp\ /grant administradores:F /T /C
 rmdir /q /s C:\Users\%USERNAME%\AppData\Local\Temp\
@@ -63,7 +63,7 @@ rmdir /q /s C:\Users\%USERNAME%\AppData\Local\Microsoft\Edge\"User Data"\"Profil
 
 REM ******************** FIREFOX ********************
 taskkill /F /IM "firefox.exe"
-REM define qual é a pasta Profile do usuário e apaga os arquivos temporários dali
+REM define qual ï¿½ a pasta Profile do usuï¿½rio e apaga os arquivos temporï¿½rios dali
 set parentfolder=C:\Users\%USERNAME%\AppData\Local\Mozilla\Firefox\Profiles\
 for /f "tokens=*" %%a in ('"dir /b "%parentfolder%"|findstr ".*\.default-release""') do set folder=%%a
 del C:\Users\%USERNAME%\AppData\local\Mozilla\Firefox\Profiles\%folder%\cache2\entries\*.
