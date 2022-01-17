@@ -71,16 +71,14 @@ if not exist "C:\ProgramData\chocolatey" (
 	choco upgrade chocolatey
 
 	rem Atualiza os pacotes
-	for /F "delims=*" %%i IN ('choco outdated') DO set text=%%i
-	set TEXT="%text%"
-	set number="%TEXT:~27,2%"
-	if %number% gtr 0 (
-		choco upgrade all -y
-	) 
-	pause
+	rem for /F "delims=*" %%i IN ('choco outdated') DO set text=%%i
+	rem set TEXT="%text%"
+	rem set number="%TEXT:~27,2%"
+	rem if %number% gtr 0 (
+		rem choco upgrade all -y
+	rem ) 
+	rem pause
 )
-
-
 
 rem Acessa a unidade C:\
 cd c:\
