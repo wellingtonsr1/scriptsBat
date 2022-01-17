@@ -59,7 +59,7 @@ set /p opInstall=Escolha uma opcao:
 if not defined opInstall goto opcao6
 
 if %opInstall% GTR 3 goto opcao6
-if %opInstall% equ 1 set listaProgramas=lista.txt)
+if %opInstall% equ 1 set listaProgramas=lista.txt
 if %opInstall% equ 2 set listaProgramas=minhaLista.txt 
 if %opInstall% equ 3 goto menu 
 
@@ -69,7 +69,17 @@ if not exist "C:\ProgramData\chocolatey" (
 ) else (
 	rem Atualiza o chocolatey
 	choco upgrade chocolatey
+
+	for /F "delims=*" %%i IN ('choco outdated') DO set text=%%i
+	set TEXT="%text%"
+	set number="%TEXT:~27,2%"
+	if %number% gtr 0 (
+		choco upgrade all -y
+	) 
+	pause
 )
+
+
 
 rem Acessa a unidade C:\
 cd c:\
