@@ -63,31 +63,20 @@ if %opInstall% equ 1 set listaProgramas=lista.txt
 if %opInstall% equ 2 set listaProgramas=minhaLista.txt 
 if %opInstall% equ 3 goto menu 
 
+
 if not exist "C:\ProgramData\chocolatey" (
 	rem Instala o chocolatey
 	@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command " [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 ) else (
 	rem Atualiza o chocolatey
 	choco upgrade chocolatey
-
+	
 	rem Atualiza os pacotes
-	rem for /F "delims=*" %%i IN ('choco outdated') DO set text=%%i
-	rem set TEXT="%text%"
-	rem set number="%TEXT:~27,2%"
-	rem if %number% gtr 0 (
-		rem choco upgrade all -y
-	rem ) 
-	rem pause
+	choco upgrade all -y
 )
 
 rem Acessa a unidade C:\
 cd c:\
-
-rem Verifica qual arquivo de lista usar
-rem set listaProgramas=lista.txt
-rem if exist "instalarProgBasicos\minhaLista.txt" (
-rem	set listaProgramas=minhaLista.txt
-rem )
 
 rem Percorre uma lista com os nomes dos programas a serem instalados
 for /F "tokens=*" %%A in (instalarProgBasicos\%listaProgramas%) do (
