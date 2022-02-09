@@ -59,7 +59,7 @@ set /p opInstall=Escolha uma opcao:
 if not defined opInstall goto opcao6
 
 if %opInstall% GTR 3 goto opcao6
-if %opInstall% equ 1 set listaProgramas=lista.txt
+if %opInstall% equ 1 set listaProgramas=listaPadrao.txt
 if %opInstall% equ 2 set listaProgramas=minhaLista.txt 
 if %opInstall% equ 3 goto menu 
 

@@ -1,0 +1,7 @@
+firefoxesr
+7zip
+adobereader
+jre8
+libreoffice-still
+pdfcreator
+python
