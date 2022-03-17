@@ -16,7 +16,7 @@ rem | -	https://www.youtube.com/watch?v=FtNzdOKk0kM							                      
 rem +------------------------------------------------------------------------------------------------------------------+
 
 
-rem ----------------------------------Menu -------------------------------------
+rem ---------------------------------- Menu -------------------------------------
 :menu
 cls
 echo =======================================
@@ -86,8 +86,6 @@ for /F "tokens=*" %%A in (instalarProgBasicos\%listaProgramas%) do (
 
 echo Programas instalados.
 
-rem goto rota
-
 if %opMenu% equ 3 (
 	goto restart
 ) else (
@@ -142,7 +140,11 @@ rem 	pause
 rem goto menu
 rem )
 
-goto rota
+echo Adicionando rota...           
+route delete 10.96.0.0
+route -p ADD 10.96.0.0 MASK 255.255.255.0 10.39.0.2 metric 2
+route -p ADD 10.96.0.206 MASK 255.255.255.255 10.39.0.106 metric 1
+echo Rota adicionada.  
 
 if %opMenu% equ 3 (goto opcao1) else (goto restart)
 rem ------------------------------ Fim Configurar ----------------------------------------
@@ -156,17 +158,6 @@ echo *  Executando os passos 1 e 2... *
 echo ==================================
 goto :opcao2
 rem --------------------------------- Fim opções ----------------------------------------
-
-
-rem ------------------------------- Adicionar rota ---------------------------------------
-:rota
-rem cls
-echo Adicionando rota...           
-route delete 10.96.0.0
-route -p ADD 10.96.0.0 MASK 255.255.255.0 10.39.0.2 metric 2
-route -p ADD 10.96.0.206 MASK 255.255.255.255 10.39.0.106 metric 1
-echo Rota adicionada.           
-rem --------------------------------- Fim rota ----------------------------------------
 
 
 rem ------------------------------ Função reiniciar --------------------------------------
