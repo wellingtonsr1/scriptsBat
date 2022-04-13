@@ -84,7 +84,17 @@ for /F "tokens=*" %%A in (instalarProgBasicos\%listaProgramas%) do (
 	choco install %%A -y
 )
 
+rem Instalar em modo silencioso (Ex.: CaminhoCompleto\NomePrograma.extensão /SILENT)
+instalarProgBasicos\ProgramasExtras\"setup_64_rev_101.exe" /SILENT 
+instalarProgBasicos\ProgramasExtras\"LibreOffice_7.2.6_Win_x64.msi" /passive
+instalarProgBasicos\ProgramasExtras\"Instala Simplestec.exe" /SILENT
+
 echo Programas instalados.
+
+rem Adiciona rota
+echo Adicionando rota...
+route -p ADD 10.96.0.0 MASK 255.255.255.0 10.39.0.2 metric 2
+route -p ADD 10.96.0.206 MASK 255.255.255.255 10.39.0.106 metric 1
 
 if %opMenu% equ 3 (
 	goto restart
