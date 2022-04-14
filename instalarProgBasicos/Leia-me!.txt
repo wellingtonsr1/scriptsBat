@@ -1,2 +1,2 @@
-Salvar a pasta "programasBasicos" em C:\;
-Executar o "instador" como administrador;
+Salvar a pasta "instalarProgBasicos" em C:\;
+Executar o "instadorVx.bat" como administrador;
